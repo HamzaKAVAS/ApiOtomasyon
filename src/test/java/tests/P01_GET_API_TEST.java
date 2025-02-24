@@ -11,5 +11,12 @@ public class P01_GET_API_TEST {
         ve response suresinin 5 sn’den kisa oldugunu manuel olarak test ediniz.
     */
 
+    /* ===========================================================================================================
+                          -------- Tüm API sorguları 4 aşamada yapılır --------
+       1- EndPoint hazırlanır (Url ve varsa (PUT-POST-PATCH) Request Body hazırlanır)
+       2- Soruda verilmiş ise Expected Data hazırlanır, verilmemişse hazırlanmaz.
+       3- Dönen cevap kaydedilir.
+       4- Assertion işlemleri yapılır.
+       =========================================================================================================== */
 
 }
