@@ -1,8 +1,6 @@
 package tests;
-
 import io.restassured.response.Response;
 import org.junit.Test;
-
 import static io.restassured.RestAssured.given;
 
 public class P01_GET_API_TEST {
@@ -33,5 +31,12 @@ public class P01_GET_API_TEST {
 
         // 3- Dönen cevap kaydedilir.
         Response response = given().when().get(url);
+
+        // 4- Assertion işlemleri yapılır.
+        System.out.println("Status Code: " + response.getStatusCode());
+        System.out.println("Content Type: " + response.getContentType());
+        System.out.println("Server name with Header: " + response.getHeader("Server"));
+        System.out.println("Status Line: " + response.getStatusLine());
+        System.out.println("Response Time: " + response.getTime());
     }
 }
