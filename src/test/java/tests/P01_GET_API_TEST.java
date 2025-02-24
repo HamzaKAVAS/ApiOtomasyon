@@ -1,5 +1,10 @@
 package tests;
 
+import io.restassured.response.Response;
+import org.junit.Test;
+
+import static io.restassured.RestAssured.given;
+
 public class P01_GET_API_TEST {
 
     /*
@@ -19,4 +24,14 @@ public class P01_GET_API_TEST {
        4- Assertion işlemleri yapılır.
        =========================================================================================================== */
 
+    @Test
+    public void test(){
+        // 1- EndPoint hazırlanır.
+        String url = "https://restful-booker.herokuapp.com/booking/10";
+
+        // 2- Expected Data verilmemiş.
+
+        // 3- Dönen cevap kaydedilir.
+        Response response = given().when().get(url);
+    }
 }
