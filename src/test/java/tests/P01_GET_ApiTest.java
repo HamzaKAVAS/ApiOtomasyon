@@ -23,7 +23,7 @@ public class P01_GET_ApiTest {
        =========================================================================================================== */
 
     @Test
-    public void test(){
+    public void test() {
         // 1- EndPoint hazırlanır.
         String url = "https://restful-booker.herokuapp.com/booking/10";
 
