@@ -3,7 +3,7 @@ import io.restassured.response.Response;
 import org.junit.Test;
 import static io.restassured.RestAssured.given;
 
-public class P01_GET_API_TEST {
+public class P01_GET_ApiTest {
 
     /*
         https://restful-booker.herokuapp.com/booking/10 url’ine bir GET request gonderdigimizde donen Response’un,
