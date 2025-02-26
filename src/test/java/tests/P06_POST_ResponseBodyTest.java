@@ -1,5 +1,6 @@
 package tests;
 
+import org.json.JSONObject;
 import org.junit.Test;
 
 public class P06_POST_ResponseBodyTest {
@@ -23,6 +24,16 @@ public class P06_POST_ResponseBodyTest {
 
     @Test
     public void postResponseBodyTest(){
+        // 1- EndPoint ve reqBody hazırlanır.
+        String url = "https://jsonplaceholder.typicode.com/posts";
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("title","API");
+        reqBody.put("body","API ogrenmek ne guzel");
+        reqBody.put("userId",10);
+
+        // 2- Expected Data verilmemiş.
+
 
     }
 }
