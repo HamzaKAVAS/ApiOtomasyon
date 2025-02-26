@@ -1,6 +1,9 @@
 package tests;
 
+import io.restassured.response.Response;
 import org.junit.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P07_GET_BodyTekrarlardanKurtulma {
 
@@ -19,6 +22,16 @@ public class P07_GET_BodyTekrarlardanKurtulma {
 
     @Test
     public void test(){
+        // 1- EndPoint hazırlanır.
+        String url = "https://restful-booker.herokuapp.com/booking/100";
+
+        // 2- Expected Data verilmemiş.
+
+        // 3- Response kaydedilir.
+        Response response = given().when().get(url);
+
+        // 4- Assertion işlemleri yapılır.
+
 
     }
 }
