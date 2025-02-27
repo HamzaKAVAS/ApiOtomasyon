@@ -1,11 +1,10 @@
 package tests;
-
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Test;
-
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class P08_JSON_PathIleBodyTest {
 
@@ -37,21 +36,21 @@ public class P08_JSON_PathIleBodyTest {
     */
 
     @Test
-    public void jsonPathTest(){
+    public void jsonPathTest() {
         // 1- EndPoint ve reqBody hazırlanır.
         String url = "https://restful-booker.herokuapp.com/booking";
 
         JSONObject innerData = new JSONObject();
-        innerData.put("checkin","2021-06-01");
-        innerData.put("checkout","2021-06-10");
+        innerData.put("checkin", "2021-06-01");
+        innerData.put("checkout", "2021-06-10");
 
         JSONObject reqBody = new JSONObject();
-        reqBody.put("firstname","Ahmet");
-        reqBody.put("lastname","Bulut");
-        reqBody.put("totalprice",500);
-        reqBody.put("depositpaid",false);
-        reqBody.put("bookingdates",innerData);
-        reqBody.put("additionalneeds","wi-fi");
+        reqBody.put("firstname", "Ahmet");
+        reqBody.put("lastname", "Bulut");
+        reqBody.put("totalprice", 500);
+        reqBody.put("depositpaid", false);
+        reqBody.put("bookingdates", innerData);
+        reqBody.put("additionalneeds", "wi-fi");
 
         // 2- Expected Data verilmemiş.
 
@@ -59,5 +58,13 @@ public class P08_JSON_PathIleBodyTest {
         Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
 
         // 4- Assertion işlemleri
+        response.then().assertThat().statusCode(200).contentType("application/json")
+                .body("booking.firstname", equalTo("Ahmet"),
+                        "booking.lastname", equalTo("Bulut"),
+                        "booking.totalprice", equalTo(500),
+                        "booking.depositpaid", equalTo(false),
+                        "booking.bookingdates.checkin", equalTo("2021-06-01"),
+                        "booking.bookingdates.checkout", equalTo("2021-06-10"),
+                        "booking.additionalneeds", equalTo("wi-fi"));
     }
 }
