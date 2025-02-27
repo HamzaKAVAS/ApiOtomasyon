@@ -1,7 +1,11 @@
 package tests;
 
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P08_JSON_PathIleBodyTest {
 
@@ -50,5 +54,10 @@ public class P08_JSON_PathIleBodyTest {
         reqBody.put("additionalneeds","wi-fi");
 
         // 2- Expected Data verilmemiş.
+
+        // 3- Response kaydedilir.
+        Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
+
+        // 4- Assertion işlemleri
     }
 }
