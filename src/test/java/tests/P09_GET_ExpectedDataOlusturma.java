@@ -1,5 +1,7 @@
 package tests;
 
+import org.junit.Test;
+
 public class P09_GET_ExpectedDataOlusturma {
 
     /*
@@ -17,4 +19,12 @@ public class P09_GET_ExpectedDataOlusturma {
     }
 
     */
+
+    @Test
+    public void test(){
+        // 1- Endpoint hazırlama
+        String url = "https://jsonplaceholder.typicode.com/posts/22";
+
+
+    }
 }
