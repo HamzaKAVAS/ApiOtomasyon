@@ -1,5 +1,8 @@
 package tests;
 
+import org.json.JSONObject;
+import org.junit.Test;
+
 public class P10_POST_ExpectedDataJsonPathAssertion {
 
     /*
@@ -36,4 +39,22 @@ public class P10_POST_ExpectedDataJsonPathAssertion {
            additionalneeds": "wi-fi"
          }
     */
+
+    @Test
+    public void test(){
+        // 1- EndPoint ve reqBody Hazırlama
+        String url = "https://restful-booker.herokuapp.com/booking";
+
+        JSONObject innerData = new JSONObject();
+        innerData.put("checkin", "2021-06-01");
+        innerData.put("checkout", "2021-06-10");
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("firstname", "Ahmet");
+        reqBody.put("lastname", "Bulut");
+        reqBody.put("totalprice", 120);
+        reqBody.put("depositpaid", true);
+        reqBody.put("bookingdates", innerData);
+        reqBody.put("additionalneeds", "wi-fi");
+    }
 }
