@@ -56,5 +56,7 @@ public class P10_POST_ExpectedDataJsonPathAssertion {
         reqBody.put("depositpaid", true);
         reqBody.put("bookingdates", innerData);
         reqBody.put("additionalneeds", "wi-fi");
+
+        // 2- Expected Data Oluşturmak
     }
 }
