@@ -58,5 +58,8 @@ public class P10_POST_ExpectedDataJsonPathAssertion {
         reqBody.put("additionalneeds", "wi-fi");
 
         // 2- Expected Data Oluşturmak
+        JSONObject expBody = new JSONObject();
+        expBody.put("bookingid", 146);
+        expBody.put("booking", reqBody);
     }
 }
