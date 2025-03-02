@@ -1,7 +1,11 @@
 package tests;
 
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P10_POST_ExpectedDataJsonPathAssertion {
 
@@ -63,5 +67,6 @@ public class P10_POST_ExpectedDataJsonPathAssertion {
         expBody.put("booking", reqBody);
 
         // 3- Response kaydetmek
+        Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
     }
 }
