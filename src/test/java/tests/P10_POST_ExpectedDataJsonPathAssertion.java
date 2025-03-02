@@ -1,11 +1,13 @@
 package tests;
 
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class P10_POST_ExpectedDataJsonPathAssertion {
 
@@ -70,5 +72,16 @@ public class P10_POST_ExpectedDataJsonPathAssertion {
         Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
 
         // 4- Assertion işlemi
+        JsonPath respJP = response.jsonPath();
+
+        assertEquals(expBody.getJSONObject("booking").get("firstname"), respJP.get("booking.firstname"));
+        assertEquals(expBody.getJSONObject("booking").get("lastname"), respJP.get("booking.lastname"));
+        assertEquals(expBody.getJSONObject("booking").get("totalprice"), respJP.get("booking.totalprice"));
+        assertEquals(expBody.getJSONObject("booking").get("depositpaid"), respJP.get("booking.depositpaid"));
+        assertEquals(expBody.getJSONObject("booking").get("additionalneeds"), respJP.get("booking.additionalneeds"));
+        assertEquals(expBody.getJSONObject("booking").getJSONObject("bookingdates").get("checkin")
+                , respJP.get("booking.bookingdates.checkin"));
+        assertEquals(expBody.getJSONObject("booking").getJSONObject("bookingdates").get("checkout")
+                , respJP.get("booking.bookingdates.checkout"));
     }
 }
