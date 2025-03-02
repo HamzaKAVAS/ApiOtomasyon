@@ -61,5 +61,7 @@ public class P10_POST_ExpectedDataJsonPathAssertion {
         JSONObject expBody = new JSONObject();
         expBody.put("bookingid", 146);
         expBody.put("booking", reqBody);
+
+        // 3- Response kaydetmek
     }
 }
