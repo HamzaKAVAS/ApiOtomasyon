@@ -1,7 +1,11 @@
 package tests;
 
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P10_POST_ExpectedDataSoftAssert {
 
@@ -61,5 +65,8 @@ public class P10_POST_ExpectedDataSoftAssert {
         JSONObject expBody = new JSONObject();
         expBody.put("bookingid",255);
         expBody.put("booking",reqBody);
+
+        // 3- Response kaydetmek
+        Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
     }
 }
