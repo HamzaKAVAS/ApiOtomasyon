@@ -57,6 +57,9 @@ public class P10_POST_ExpectedDataSoftAssert {
         reqBody.put("bookingdates",bookingdates);
         reqBody.put("additionalneeds","Breakfast");
 
-
+        // 2- Expected Data Oluşturmak
+        JSONObject expBody = new JSONObject();
+        expBody.put("bookingid",255);
+        expBody.put("booking",reqBody);
     }
 }
