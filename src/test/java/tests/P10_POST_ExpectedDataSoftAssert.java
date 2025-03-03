@@ -68,5 +68,8 @@ public class P10_POST_ExpectedDataSoftAssert {
 
         // 3- Response kaydetmek
         Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
+
+        // 4- Assertion işlemi
+
     }
 }
