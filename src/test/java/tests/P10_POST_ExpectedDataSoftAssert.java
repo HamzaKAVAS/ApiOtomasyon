@@ -1,9 +1,11 @@
 package tests;
 
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import static io.restassured.RestAssured.given;
 
@@ -70,6 +72,9 @@ public class P10_POST_ExpectedDataSoftAssert {
         Response response = given().contentType(ContentType.JSON).when().body(reqBody.toString()).post(url);
 
         // 4- Assertion işlemi
+        JsonPath resJP = response.jsonPath();
+        SoftAssert softAssert = new SoftAssert();
+
 
     }
 }
