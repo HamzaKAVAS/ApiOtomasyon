@@ -10,7 +10,6 @@ import static io.restassured.RestAssured.given;
 public class P10_POST_ExpectedDataSoftAssert {
 
     /*
-
        https://restful-booker.herokuapp.com/booking url'ine
        asagidaki body'ye sahip bir POST request gonderdigimizde
 
