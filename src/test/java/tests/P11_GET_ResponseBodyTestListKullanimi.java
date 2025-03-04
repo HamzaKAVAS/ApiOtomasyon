@@ -1,6 +1,9 @@
 package tests;
 
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P11_GET_ResponseBodyTestListKullanimi {
 
@@ -12,7 +15,7 @@ public class P11_GET_ResponseBodyTestListKullanimi {
        ve response body'sindeki
        eczane sayısıın sayisinin 4
        ve eczane'lerden birinin "ENES ECZANESİ"
-       ve eczanele ilçelerinde icinde Merkez ,Delice ve Keskin degerinin oldugunu test edin.
+       ve eczaneler ilçelerinde icinde Merkez ,Delice ve Keskin degerinin oldugunu test edin.
     */
 
     @Test
@@ -21,6 +24,11 @@ public class P11_GET_ResponseBodyTestListKullanimi {
         String url = "https://api.collectapi.com/health/dutyPharmacy?il=Kırıkkale";
         String apiKey = "apikey 7oz12GLMsEHKccL5kM3kah:5t9yvaRbrmIzEjsWljC330";
 
+        // 2- Expected Data Yok
+
+        // 3- Response Kaydedilir.
+        Response response = given().when().header("authorization",apiKey).get(url);
+        response.prettyPrint();
 
     }
 }
