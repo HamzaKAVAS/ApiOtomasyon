@@ -34,4 +34,18 @@ public class P12_JPH_BaseUrl extends JPH_BaseUrl {
        status code'unun 200 oldugunu ve "title" degerinin
        "optio dolor molestias sit" oldugunu test edin
     */
+
+    @Test
+    public void test02() {
+        // 1- EndPoint hazırlanır.
+        specJPH.pathParams("pp1", "posts", "pp2", 44);
+
+        // 2- Expected Body Yok.
+
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specJPH).when().get("/{pp1}/{pp2}");
+
+        // 4- Assertion İşlemleri Yapılır.
+        response.then().assertThat().statusCode(200).body("title", equalTo("optio dolor molestias sit"));
+    }
 }
