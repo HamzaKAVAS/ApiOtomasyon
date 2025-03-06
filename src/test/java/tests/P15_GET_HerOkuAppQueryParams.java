@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class P15_HerOkuAppQueryParams extends RESTFULL_BaseUrl {
+public class P15_GET_HerOkuAppQueryParams extends RESTFULL_BaseUrl {
 
     /*
        https://restful-booker.herokuapp.com/booking endpointine

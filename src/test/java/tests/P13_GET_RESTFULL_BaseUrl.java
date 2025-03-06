@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 
-public class P13_RESTFULL_BaseUrl extends RESTFULL_BaseUrl {
+public class P13_GET_RESTFULL_BaseUrl extends RESTFULL_BaseUrl {
 
     /*
        https://restful-booker.herokuapp.com/booking endpointine

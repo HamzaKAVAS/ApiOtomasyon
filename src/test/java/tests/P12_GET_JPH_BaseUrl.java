@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class P12_JPH_BaseUrl extends JPH_BaseUrl {
+public class P12_GET_JPH_BaseUrl extends JPH_BaseUrl {
 
     /*
         https://jsonplaceholder.typicode.com/posts endpointine
