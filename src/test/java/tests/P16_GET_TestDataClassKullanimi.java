@@ -44,16 +44,36 @@ public class P16_GET_TestDataClassKullanimi extends JPH_BaseUrl {
     }
 
     @Test
-    public void testDataKullanimi2(){
+    public void testDataKullanimi2() {
         // 1- EndPoint ve PathParams Hazırlanır.
         specJPH.pathParams("pp1", "posts", "pp2", 22);
 
         // 2- Expected Body Yazılır.
-        JSONObject expData = JPHDatas.expDataParametreli(3,22,"dolor sint quo a velit explicabo quia nam",
+        JSONObject expData = JPHDatas.expDataParametreli(3, 22, "dolor sint quo a velit explicabo quia nam",
                 "eos qui et ipsum ipsam suscipit aut\n" +
                         "sed omnis non odio\n" +
                         "expedita earum mollitia molestiae aut atque rem suscipit\n" +
                         "nam impedit esse");
+
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specJPH).when().get("/{pp1}/{pp2}");
+        JsonPath resJP = response.jsonPath();
+
+        // 4- Assertion İşlemleri Yapılır.
+        assertEquals(response.getStatusCode(), JPHDatas.basariliStatusCode);
+        assertEquals(resJP.get("userId"), expData.get("userId"));
+        assertEquals(resJP.get("id"), expData.get("id"));
+        assertEquals(resJP.get("title"), expData.get("title"));
+        assertEquals(resJP.get("body"), expData.get("body"));
+    }
+
+    @Test
+    public void testDataKullanimi3() {
+        // 1- EndPoint ve PathParams Hazırlanır.
+        specJPH.pathParams("pp1", "posts", "pp2", 22);
+
+        // 2- Expected Body Yazılır.
+        JSONObject expData = JPHDatas.expDataScanner();
 
         // 3- Response Kaydedilir.
         Response response = given().spec(specJPH).when().get("/{pp1}/{pp2}");
