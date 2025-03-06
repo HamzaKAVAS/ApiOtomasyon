@@ -42,4 +42,9 @@ public class P16_GET_TestDataClassKullanimi extends JPH_BaseUrl {
         assertEquals(resJP.get("title"), expData.get("title"));
         assertEquals(resJP.get("body"), expData.get("body"));
     }
+
+    @Test
+    public void testDataKullanimi2(){
+
+    }
 }

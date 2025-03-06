@@ -18,4 +18,14 @@ public class JPHDatas {
 
         return expBody;
     }
+
+    public static JSONObject expDataParametreli(int userId, int id, String title, String body){
+        JSONObject expBody = new JSONObject();
+        expBody.put("userId",userId);
+        expBody.put("id",id);
+        expBody.put("title",title);
+        expBody.put("body",body);
+
+        return expBody;
+    }
 }
