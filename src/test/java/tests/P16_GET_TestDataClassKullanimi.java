@@ -1,7 +1,12 @@
 package tests;
-
 import baseUrl.JPH_BaseUrl;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import org.json.JSONObject;
 import org.testng.annotations.Test;
+import testDatas.JPHDatas;
+import static io.restassured.RestAssured.given;
+import static org.testng.Assert.*;
 
 public class P16_GET_TestDataClassKullanimi extends JPH_BaseUrl {
 
@@ -19,11 +24,22 @@ public class P16_GET_TestDataClassKullanimi extends JPH_BaseUrl {
     */
 
     @Test
-    public void testDataKullanimi1(){
+    public void testDataKullanimi1() {
         // 1- EndPoint ve PathParams Hazırlanır.
-        specJPH.pathParams("pp1","posts","pp2",22);
+        specJPH.pathParams("pp1", "posts", "pp2", 22);
 
         // 2- Expected Body Yazılır.
+        JSONObject expData = JPHDatas.expData();
 
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specJPH).when().get("/{pp1}/{pp2}");
+        JsonPath resJP = response.jsonPath();
+
+        // 4- Assertion İşlemleri Yapılır.
+        assertEquals(response.getStatusCode(), JPHDatas.basariliStatusCode);
+        assertEquals(resJP.get("userId"), expData.get("userId"));
+        assertEquals(resJP.get("id"), expData.get("id"));
+        assertEquals(resJP.get("title"), expData.get("title"));
+        assertEquals(resJP.get("body"), expData.get("body"));
     }
 }
