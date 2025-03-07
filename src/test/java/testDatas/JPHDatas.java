@@ -63,22 +63,22 @@ public class JPHDatas {
          }
     */
 
-    public static JSONObject jsonData(){
+    public static JSONObject jsonData() {
         JSONObject jsonData = new JSONObject();
-        jsonData.put("title","Talip");
-        jsonData.put("body","Bozlagan");
-        jsonData.put("userId",5);
-        jsonData.put("id",7);
+        jsonData.put("title", "Talip");
+        jsonData.put("body", "Bozlagan");
+        jsonData.put("userId", 5);
+        jsonData.put("id", 7);
 
         return jsonData;
     }
 
-    public static JSONObject jsonDataParametreli(String title, String body, int userId, int id){
+    public static JSONObject jsonDataParametreli(String title, String body, int userId, int id) {
         JSONObject jsonData = new JSONObject();
-        jsonData.put("title",title);
-        jsonData.put("body",body);
-        jsonData.put("userId",userId);
-        jsonData.put("id",id);
+        jsonData.put("title", title);
+        jsonData.put("body", body);
+        jsonData.put("userId", userId);
+        jsonData.put("id", id);
 
         return jsonData;
     }

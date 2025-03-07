@@ -57,4 +57,29 @@ public class P17_PUT_TestDataKullanimi extends JPH_BaseUrl {
         assertEquals(resJP.get("userId"), expBody.get("userId"));
         assertEquals(resJP.get("id"), expBody.get("id"));
     }
+
+    @Test
+    public void test02() {
+        // 1- EndPoint ve reqBody Hazırlanır.
+        specJPH.pathParams("pp1", "posts", "pp2", 7);
+        JSONObject reqBody = JPHDatas.jsonData();
+
+        // 2- Expected Body Yazılır.
+        JSONObject expBody = JPHDatas.jsonDataParametreli("Talip", "Bozlagan", 5, 7);
+
+        // 3- Response Kaydedilir.
+        Response response = given().contentType(ContentType.JSON).spec(specJPH).when().body(reqBody.toString()).put("/{pp1}/{pp2}");
+
+        // 4- Assertion İşlemleri Yapılır.
+        JsonPath resJP = response.jsonPath();
+
+        assertEquals(response.getStatusCode(), JPHDatas.basariliStatusCode);
+        assertEquals(response.getContentType(), JPHDatas.ContentType);
+        assertEquals(response.getHeader("Connection"), JPHDatas.ConnectionHeader);
+
+        assertEquals(resJP.get("title"), expBody.get("title"));
+        assertEquals(resJP.get("body"), expBody.get("body"));
+        assertEquals(resJP.get("userId"), expBody.get("userId"));
+        assertEquals(resJP.get("id"), expBody.get("id"));
+    }
 }
