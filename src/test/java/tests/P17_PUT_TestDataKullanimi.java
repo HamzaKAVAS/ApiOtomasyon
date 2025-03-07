@@ -1,9 +1,13 @@
 package tests;
 
 import baseUrl.JPH_BaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 import testDatas.JPHDatas;
+
+import static io.restassured.RestAssured.given;
 
 public class P17_PUT_TestDataKullanimi extends JPH_BaseUrl {
 
@@ -37,6 +41,9 @@ public class P17_PUT_TestDataKullanimi extends JPH_BaseUrl {
 
         // 2- Expected Body Yazılır.
         JSONObject expBody = JPHDatas.jsonData();
+
+        // 3- Response Kaydedilir.
+        Response response = given().contentType(ContentType.JSON).spec(specJPH).when().body(reqBody.toString()).put("/{pp1}/{pp2}");
 
 
     }
