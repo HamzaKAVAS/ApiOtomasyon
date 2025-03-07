@@ -1,6 +1,11 @@
 package tests;
 
-public class P17_PUT_TestDataKullanimi {
+import baseUrl.JPH_BaseUrl;
+import org.json.JSONObject;
+import org.testng.annotations.Test;
+import testDatas.JPHDatas;
+
+public class P17_PUT_TestDataKullanimi extends JPH_BaseUrl {
 
     /*
        https://jsonplaceholder.typicode.com/posts/70 url'ine asagidaki body'e sahip
@@ -24,7 +29,10 @@ public class P17_PUT_TestDataKullanimi {
          }
     */
 
-
-
-
+    @Test
+    public void test01(){
+        // 1- EndPoint ve reqBody Hazırlanır.
+        specJPH.pathParams("pp1","posts","pp2",70);
+        JSONObject reqBody = JPHDatas.jsonData();
+    }
 }
