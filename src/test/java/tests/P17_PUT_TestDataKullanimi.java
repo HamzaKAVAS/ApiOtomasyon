@@ -10,19 +10,21 @@ public class P17_PUT_TestDataKullanimi {
        ve response body'sinin asagida verilen ile ayni oldugunu test ediniz
        Request Body
          {
-           "title": "Ahmet",
-           "body": "Merhaba",
-           "userId": 7,
-           "id": 70
+           "title": "Talip",
+           "body": "Bozlagan",
+           "userId": 5,
+           "id": 7
          }
        Response Body
          {
-           "title": "Ahmet",
-           "body": "Merhaba",
-           "userId": 7,
-           "id": 70
+           "title": "Talip",
+           "body": "Bozlagan",
+           "userId": 5,
+           "id": 7
          }
     */
+
+
 
 
 }

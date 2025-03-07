@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class JPHDatas {
 
     public static int basariliStatusCode = 200;
+    public static String ContentType = "application/json; charset=utf-8";
+    public static String ConnectionHeader = "keep-alive";
 
     public static JSONObject expData() {
         JSONObject expBody = new JSONObject();
@@ -49,5 +51,25 @@ public class JPHDatas {
         expBody.put("body", body);
 
         return expBody;
+    }
+
+    /*
+       Response Body
+         {
+           "title": "Talip",
+           "body": "Bozlagan",
+           "userId": 5,
+           "id": 7
+         }
+    */
+
+    public static JSONObject jsonData(){
+        JSONObject jsonData = new JSONObject();
+        jsonData.put("title","Talip");
+        jsonData.put("body","Bozlagan");
+        jsonData.put("userId",5);
+        jsonData.put("id",7);
+
+        return jsonData;
     }
 }
