@@ -34,5 +34,10 @@ public class P17_PUT_TestDataKullanimi extends JPH_BaseUrl {
         // 1- EndPoint ve reqBody Hazırlanır.
         specJPH.pathParams("pp1","posts","pp2",70);
         JSONObject reqBody = JPHDatas.jsonData();
+
+        // 2- Expected Body Yazılır.
+        JSONObject expBody = JPHDatas.jsonData();
+
+
     }
 }
