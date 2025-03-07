@@ -72,4 +72,14 @@ public class JPHDatas {
 
         return jsonData;
     }
+
+    public static JSONObject jsonDataParametreli(String title, String body, int userId, int id){
+        JSONObject jsonData = new JSONObject();
+        jsonData.put("title",title);
+        jsonData.put("body",body);
+        jsonData.put("userId",userId);
+        jsonData.put("id",id);
+
+        return jsonData;
+    }
 }
