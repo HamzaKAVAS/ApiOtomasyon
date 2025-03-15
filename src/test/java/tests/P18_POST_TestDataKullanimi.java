@@ -1,6 +1,9 @@
 package tests;
 
 import baseUrl.RESTFULL_BaseUrl;
+import org.json.JSONObject;
+import org.testng.annotations.Test;
+import testDatas.RestFullDatas;
 
 public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
 
@@ -41,5 +44,10 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
          }
     */
 
-
+    @Test
+    public void test01() {
+        // 1- Endpoint ve reqBody Hazırlanması
+        specRestFull.pathParam("pp1", "booking");
+        JSONObject reqBody = RestFullDatas.JSONDataOlustur();
+    }
 }
