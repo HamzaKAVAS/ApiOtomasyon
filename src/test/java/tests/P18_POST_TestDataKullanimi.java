@@ -1,9 +1,13 @@
 package tests;
 
 import baseUrl.RESTFULL_BaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 import testDatas.RestFullDatas;
+
+import static io.restassured.RestAssured.given;
 
 public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
 
@@ -54,5 +58,8 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
         JSONObject expBody = new JSONObject();
         expBody.put("bookingid", 24);
         expBody.put("booking", RestFullDatas.JSONDataOlustur());
+
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqBody.toString()).post("/{pp1}");
     }
 }
