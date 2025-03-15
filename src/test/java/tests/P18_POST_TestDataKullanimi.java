@@ -2,12 +2,14 @@ package tests;
 
 import baseUrl.RESTFULL_BaseUrl;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 import testDatas.RestFullDatas;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.*;
 
 public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
 
@@ -61,5 +63,18 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
 
         // 3- Response Kaydedilir
         Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqBody.toString()).post("/{pp1}");
+
+        // 4- Assertion İşlemleri
+        JsonPath resJP = response.jsonPath();
+
+        assertEquals(resJP.get("booking.firstname"), expBody.getJSONObject("booking").getString("firstname"));
+        assertEquals(resJP.get("booking.lastname"), expBody.getJSONObject("booking").getString("lastname"));
+        assertEquals(resJP.get("booking.totalprice"), expBody.getJSONObject("booking").get("totalprice"));
+        assertEquals(resJP.get("booking.depositpaid"), expBody.getJSONObject("booking").get("depositpaid"));
+        assertEquals(resJP.get("booking.bookingdates.checkin"), expBody.getJSONObject("booking").getJSONObject("bookingdates").getString("checkin"));
+        assertEquals(resJP.get("booking.bookingdates.checkout"), expBody.getJSONObject("booking").getJSONObject("bookingdates").getString("checkout"));
+        assertEquals(resJP.get("booking.additionalneeds"), expBody.getJSONObject("booking").getString("additionalneeds"));
+
+        response.prettyPrint();
     }
 }
