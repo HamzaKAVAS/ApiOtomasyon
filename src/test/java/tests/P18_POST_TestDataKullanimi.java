@@ -49,5 +49,10 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
         // 1- Endpoint ve reqBody Hazırlanması
         specRestFull.pathParam("pp1", "booking");
         JSONObject reqBody = RestFullDatas.JSONDataOlustur();
+
+        // 2- Expected Body
+        JSONObject expBody = new JSONObject();
+        expBody.put("bookingid", 24);
+        expBody.put("booking", RestFullDatas.JSONDataOlustur());
     }
 }
