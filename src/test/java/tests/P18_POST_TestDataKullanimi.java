@@ -85,7 +85,10 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
         JSONObject bookingdates = RestFullDatas.bookingDatesOlustur2("2021-06-01", "2021-06-10");
         JSONObject reqBody = RestFullDatas.reqBodyOlustur2("Ahmet", "Bulut", 500, true, bookingdates, "wi-fi");
 
-
+        // 2- Expected Body
+        JSONObject expData = new JSONObject();
+        expData.put("bookingid", 24);
+        expData.put("booking", reqBody);
 
     }
 }
