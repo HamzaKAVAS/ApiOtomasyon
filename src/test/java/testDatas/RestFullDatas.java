@@ -30,4 +30,17 @@ public class RestFullDatas {
         return bookingdates;
     }
 
+    public static JSONObject reqBodyOlustur2 (String firstname, String lastname, int totalprice, boolean depositpaid, JSONObject bookingdates, String additionalneeds){
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("firstname",firstname);
+        reqBody.put("lastname",lastname);
+        reqBody.put("totalprice",totalprice);
+        reqBody.put("depositpaid",depositpaid);
+        reqBody.put("bookingdates",bookingdates);
+        reqBody.put("additionalneeds",additionalneeds);
+
+        return reqBody;
+    }
+
 }
