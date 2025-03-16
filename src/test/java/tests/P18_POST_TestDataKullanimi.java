@@ -90,5 +90,8 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
         expData.put("bookingid", 24);
         expData.put("booking", reqBody);
 
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqBody.toString()).post("/{pp1}");
+
     }
 }
