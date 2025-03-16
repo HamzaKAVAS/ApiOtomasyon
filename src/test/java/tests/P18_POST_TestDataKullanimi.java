@@ -77,4 +77,15 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
 
         response.prettyPrint();
     }
+
+    @Test
+    public void test02(){
+        // 1- Endpoint ve reqBody Hazırlanması
+        specRestFull.pathParam("pp1", "booking");
+        JSONObject bookingdates = RestFullDatas.bookingDatesOlustur2("2021-06-01", "2021-06-10");
+        JSONObject reqBody = RestFullDatas.reqBodyOlustur2("Ahmet", "Bulut", 500, true, bookingdates, "wi-fi");
+
+
+
+    }
 }
