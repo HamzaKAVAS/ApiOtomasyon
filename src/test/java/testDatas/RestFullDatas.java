@@ -21,4 +21,13 @@ public class RestFullDatas {
         return reqBody;
     }
 
+    public static JSONObject bookingDatesOlustur2 (String checkin, String checkout){
+
+        JSONObject bookingdates = new JSONObject();
+        bookingdates.put("checkin",checkin);
+        bookingdates.put("checkout",checkout);
+
+        return bookingdates;
+    }
+
 }
