@@ -93,5 +93,17 @@ public class P18_POST_TestDataKullanimi extends RESTFULL_BaseUrl {
         // 3- Response Kaydedilir
         Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqBody.toString()).post("/{pp1}");
 
+        // 4- Assertion İşlemleri
+        JsonPath resJP = response.jsonPath();
+
+        assertEquals(resJP.get("booking.firstname"), expData.getJSONObject("booking").getString("firstname"));
+        assertEquals(resJP.get("booking.lastname"), expData.getJSONObject("booking").getString("lastname"));
+        assertEquals(resJP.get("booking.totalprice"), expData.getJSONObject("booking").get("totalprice"));
+        assertEquals(resJP.get("booking.depositpaid"), expData.getJSONObject("booking").get("depositpaid"));
+        assertEquals(resJP.get("booking.bookingdates.checkin"), expData.getJSONObject("booking").getJSONObject("bookingdates").getString("checkin"));
+        assertEquals(resJP.get("booking.bookingdates.checkout"), expData.getJSONObject("booking").getJSONObject("bookingdates").getString("checkout"));
+        assertEquals(resJP.get("booking.additionalneeds"), expData.getJSONObject("booking").getString("additionalneeds"));
+
+        response.prettyPrint();
     }
 }
