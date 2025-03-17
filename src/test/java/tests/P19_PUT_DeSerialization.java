@@ -1,8 +1,11 @@
 package tests;
 
+import baseUrl.JPH_BaseUrl;
+import org.testng.annotations.Test;
 import testDatas.JPHDatas;
+import java.util.Map;
 
-public class P19_PUT_DeSerialization extends JPHDatas {
+public class P19_PUT_DeSerialization extends JPH_BaseUrl {
 
     /*
        https://jsonplaceholder.typicode.com/posts/70 url'ine
@@ -26,5 +29,10 @@ public class P19_PUT_DeSerialization extends JPHDatas {
            }
     */
 
-
+    @Test
+    public void test01() {
+        // 1- Endpoint ve reqBody Hazırlanması
+        specJPH.pathParams("pp1", "posts", "pp2", 70);
+        Map<String, Object> reqMapBody = JPHDatas.mapDataOlustur();
+    }
 }
