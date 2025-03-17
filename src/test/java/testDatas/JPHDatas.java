@@ -1,6 +1,6 @@
 package testDatas;
-import org.json.JSONObject;
 
+import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -86,12 +86,22 @@ public class JPHDatas {
         return jsonData;
     }
 
-    public static Map<String,Object> mapDataOlustur(){
-        Map<String,Object> reqMap = new HashMap<>();
-        reqMap.put("userId",10.0);
-        reqMap.put("title","Ahmet");
-        reqMap.put("body","Merhaba");
-        reqMap.put("id",70.0);
+    public static Map<String, Object> mapDataOlustur() {
+        Map<String, Object> reqMap = new HashMap<>();
+        reqMap.put("userId", 10.0);
+        reqMap.put("title", "Ahmet");
+        reqMap.put("body", "Merhaba");
+        reqMap.put("id", 70.0);
+
+        return reqMap;
+    }
+
+    public static Map<String, Object> mapDataOlusturParametreli(String title, String body, double userId, double id) {
+        Map<String, Object> reqMap = new HashMap<>();
+        reqMap.put("userId", userId);
+        reqMap.put("title", title);
+        reqMap.put("body", body);
+        reqMap.put("id", id);
 
         return reqMap;
     }
