@@ -1,5 +1,8 @@
 package testDatas;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class JPHDatas {
@@ -81,5 +84,15 @@ public class JPHDatas {
         jsonData.put("id", id);
 
         return jsonData;
+    }
+
+    public static Map<String,Object> mapDataOlustur(){
+        Map<String,Object> reqMap = new HashMap<>();
+        reqMap.put("userId",10.0);
+        reqMap.put("title","Ahmet");
+        reqMap.put("body","Merhaba");
+        reqMap.put("id",70.0);
+
+        return reqMap;
     }
 }
