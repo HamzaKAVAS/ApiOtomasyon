@@ -5,8 +5,10 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import testDatas.JPHDatas;
+import java.util.HashMap;
 import java.util.Map;
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 public class P19_PUT_DeSerialization extends JPH_BaseUrl {
 
@@ -43,5 +45,13 @@ public class P19_PUT_DeSerialization extends JPH_BaseUrl {
 
         // 3- Response Kaydedilir
         Response response = given().contentType(ContentType.JSON).spec(specJPH).when().body(reqMapBody).put("/{pp1}/{pp2}");
+
+        // 4- Assertion İşlemleri
+        Map<String, Object> resMap = response.as(HashMap.class);
+
+        assertEquals(resMap.get("title"), expMapBody.get("title"));
+        assertEquals(resMap.get("body"), expMapBody.get("body"));
+        assertEquals(resMap.get("userId"), expMapBody.get("userId"));
+        assertEquals(resMap.get("id"), expMapBody.get("id"));
     }
 }
