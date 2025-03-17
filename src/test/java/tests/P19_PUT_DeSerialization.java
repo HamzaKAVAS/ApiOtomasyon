@@ -1,9 +1,12 @@
 package tests;
 
 import baseUrl.JPH_BaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import testDatas.JPHDatas;
 import java.util.Map;
+import static io.restassured.RestAssured.given;
 
 public class P19_PUT_DeSerialization extends JPH_BaseUrl {
 
@@ -37,5 +40,8 @@ public class P19_PUT_DeSerialization extends JPH_BaseUrl {
 
         // 2- Expected Body
         Map<String, Object> expMapBody = JPHDatas.mapDataOlustur();
+
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specJPH).when().body(reqMapBody).put("/{pp1}/{pp2}");
     }
 }
