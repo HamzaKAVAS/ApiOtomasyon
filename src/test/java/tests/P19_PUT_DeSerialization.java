@@ -57,6 +57,8 @@ public class P19_PUT_DeSerialization extends JPH_BaseUrl {
 
     @Test
     public void test02(){
-
+        // 1- Endpoint ve reqBody Hazırlanması
+        specJPH.pathParams("pp1", "posts", "pp2", 70);
+        Map<String, Object> reqMapBody = JPHDatas.mapDataOlusturParametreli("Ahmet","Merhaba",10.0,70.0);
     }
 }
