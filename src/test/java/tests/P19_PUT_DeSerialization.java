@@ -54,4 +54,9 @@ public class P19_PUT_DeSerialization extends JPH_BaseUrl {
         assertEquals(resMap.get("userId"), expMapBody.get("userId"));
         assertEquals(resMap.get("id"), expMapBody.get("id"));
     }
+
+    @Test
+    public void test02(){
+
+    }
 }
