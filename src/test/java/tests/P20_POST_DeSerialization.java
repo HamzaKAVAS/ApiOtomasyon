@@ -1,10 +1,14 @@
 package tests;
 
 import baseUrl.RESTFULL_BaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import testDatas.RestFullDatas;
 
 import java.util.Map;
+
+import static io.restassured.RestAssured.given;
 
 public class P20_POST_DeSerialization extends RESTFULL_BaseUrl {
 
@@ -49,9 +53,12 @@ public class P20_POST_DeSerialization extends RESTFULL_BaseUrl {
     public void test01(){
         // 1- Endpoint ve reqBody Hazırlanır
         specRestFull.pathParams("pp1","booking");
-        Map<String,Object> reqBody = RestFullDatas.mapDataOLustur();
+        Map<String,Object> reqMapBody = RestFullDatas.mapDataOLustur();
 
         // 2- Expected Body yazılır
-        Map<String,Object> expBody = RestFullDatas.expMapDataOlustur();
+        Map<String,Object> expMapBody = RestFullDatas.expMapDataOlustur();
+
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqMapBody).post("/{pp1}");
     }
 }
