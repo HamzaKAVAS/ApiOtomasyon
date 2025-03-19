@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import testDatas.RestFullDatas;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -60,5 +61,10 @@ public class P20_POST_DeSerialization extends RESTFULL_BaseUrl {
 
         // 3- Response Kaydedilir
         Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqMapBody).post("/{pp1}");
+
+        // 4- Assertion İşlemleri Yapılır
+        Map<String,Object> resMap = response.as(HashMap.class);
+
+
     }
 }
