@@ -2,6 +2,9 @@ package testDatas;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RestFullDatas {
 
     public static JSONObject JSONDataOlustur(){
@@ -41,6 +44,30 @@ public class RestFullDatas {
         reqBody.put("additionalneeds",additionalneeds);
 
         return reqBody;
+    }
+
+    public static Map<String,Object> mapDataOLustur(){
+        Map<String,Object> innerMapBody = new HashMap<>();
+        innerMapBody.put("checkin","2021-06-01");
+        innerMapBody.put("checkout","2021-06-10");
+
+        Map<String,Object> reqMapBody = new HashMap<>();
+        reqMapBody.put("firstname","Ahmet");
+        reqMapBody.put("lastname","Bulut");
+        reqMapBody.put("totalprice",500.0);
+        reqMapBody.put("depositpaid",true);
+        reqMapBody.put("bookingdates",innerMapBody);
+        reqMapBody.put("additionalneeds","wi-fi");
+
+        return reqMapBody;
+    }
+
+    public static Map<String,Object> expMapDataOlustur(){
+        Map<String, Object> expMapBody = new HashMap<>();
+        expMapBody.put("bookingid",25);
+        expMapBody.put("booking",mapDataOLustur());
+
+        return expMapBody;
     }
 
 }
