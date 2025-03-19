@@ -50,5 +50,8 @@ public class P20_POST_DeSerialization extends RESTFULL_BaseUrl {
         // 1- Endpoint ve reqBody Hazırlanır
         specRestFull.pathParams("pp1","booking");
         Map<String,Object> reqBody = RestFullDatas.mapDataOLustur();
+
+        // 2- Expected Body yazılır
+        Map<String,Object> expBody = RestFullDatas.expMapDataOlustur();
     }
 }
