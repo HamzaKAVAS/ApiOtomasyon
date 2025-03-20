@@ -1,6 +1,8 @@
 package tests;
 
 import baseUrl.JPH_BaseUrl;
+import org.testng.annotations.Test;
+import pojo.PojoJPH;
 
 public class P21_PUT_PojoClass extends JPH_BaseUrl {
 
@@ -27,5 +29,10 @@ public class P21_PUT_PojoClass extends JPH_BaseUrl {
        }
     */
 
-
+    @Test
+    public void pojoPutTest(){
+        // 1- Endpoint ve reqBody Hazırlanması
+        specJPH.pathParams("pp1","posts","pp2",70);
+        PojoJPH reqPojo = new PojoJPH("Hadi","Korkmaz",10,70);
+    }
 }
