@@ -5,8 +5,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojo.PojoJPH;
-
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 public class P21_PUT_PojoClass extends JPH_BaseUrl {
 
@@ -34,17 +34,23 @@ public class P21_PUT_PojoClass extends JPH_BaseUrl {
     */
 
     @Test
-    public void pojoPutTest(){
+    public void pojoPutTest() {
         // 1- Endpoint ve reqBody Hazırlanması
-        specJPH.pathParams("pp1","posts","pp2",70);
-        PojoJPH reqPojo = new PojoJPH("Hadi","Korkmaz",10,70);
+        specJPH.pathParams("pp1", "posts", "pp2", 70);
+        PojoJPH reqPojo = new PojoJPH("Hadi", "Korkmaz", 10, 70);
 
         // 2- Expected Body Hazırlanır
-        PojoJPH expPojo = new PojoJPH("Hadi","Korkmaz",10,70);
+        PojoJPH expPojo = new PojoJPH("Hadi", "Korkmaz", 10, 70);
 
         // 3- Response Kaydedilir
         Response response = given().contentType(ContentType.JSON).spec(specJPH).when().body(reqPojo).put("/{pp1}/{pp2}");
 
+        // 4- Assertion İşlemleri Yapılır
+        PojoJPH resPojo = response.as(PojoJPH.class);
 
+        assertEquals(resPojo.getTitle(), expPojo.getTitle());
+        assertEquals(resPojo.getBody(), expPojo.getBody());
+        assertEquals(resPojo.getUserId(), expPojo.getUserId());
+        assertEquals(resPojo.getId(), expPojo.getId());
     }
 }
