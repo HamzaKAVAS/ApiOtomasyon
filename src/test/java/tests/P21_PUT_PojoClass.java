@@ -1,8 +1,12 @@
 package tests;
 
 import baseUrl.JPH_BaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojo.PojoJPH;
+
+import static io.restassured.RestAssured.given;
 
 public class P21_PUT_PojoClass extends JPH_BaseUrl {
 
@@ -37,5 +41,10 @@ public class P21_PUT_PojoClass extends JPH_BaseUrl {
 
         // 2- Expected Body Hazırlanır
         PojoJPH expPojo = new PojoJPH("Hadi","Korkmaz",10,70);
+
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specJPH).when().body(reqPojo).put("/{pp1}/{pp2}");
+
+
     }
 }
