@@ -34,5 +34,8 @@ public class P21_PUT_PojoClass extends JPH_BaseUrl {
         // 1- Endpoint ve reqBody Hazırlanması
         specJPH.pathParams("pp1","posts","pp2",70);
         PojoJPH reqPojo = new PojoJPH("Hadi","Korkmaz",10,70);
+
+        // 2- Expected Body Hazırlanır
+        PojoJPH expPojo = new PojoJPH("Hadi","Korkmaz",10,70);
     }
 }
