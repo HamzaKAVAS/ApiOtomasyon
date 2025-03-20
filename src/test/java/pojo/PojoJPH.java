@@ -63,5 +63,13 @@ public class PojoJPH {
     public PojoJPH() {
     }
 
-
+    // 5- Verileri yazdırma durumunda ihtiyaç olursa diye toString methodu da eklenir.
+    @Override
+    public String toString() {
+        return "==========PojoJPH==========" + "\n" +
+                "title: " + title + "\n" +
+                "body: " + body + "\n" +
+                "userId: " + userId + "\n" +
+                "id: " + id;
+    }
 }
