@@ -51,5 +51,17 @@ public class PojoJPH {
         this.id = id;
     }
 
+    // 3- Tüm variable'ları içeren parametreli constructor oluşturuyoruz.
+    public PojoJPH(String title, String body, int userId, int id) {
+        this.title = title;
+        this.body = body;
+        this.userId = userId;
+        this.id = id;
+    }
+
+    // 4- Default constructor öldüğü için onun işlevini yapacak bir parametresiz constructor oluşturalım.
+    public PojoJPH() {
+    }
+
 
 }
