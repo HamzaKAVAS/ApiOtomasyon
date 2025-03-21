@@ -8,4 +8,8 @@ public class RestFullBookingdatesPOJO {
          "checkout": "2021-06-10"
        }
     */
+
+    // 1- Tüm variable'lar private olarak oluşturulur.
+    private String checkin;
+    private String checkout;
 }
