@@ -39,4 +39,12 @@ public class RestFullBookingdatesPOJO {
     // 4- Default constructor öldüğü için onun işlevini yapacak bir parametresiz constructor oluşturalım.
     public RestFullBookingdatesPOJO() {
     }
+
+    // 5- Verileri yazdırma durumunda ihtiyaç olursa diye toString methodu da eklenir.
+    @Override
+    public String toString() {
+        return "Bookingdates Bilgileri" + "\n" +
+                "Checkin Tarihi:" + checkin + "\n" +
+                "Checkout Tarihi:" + checkout;
+    }
 }
