@@ -12,4 +12,21 @@ public class RestFullBookingdatesPOJO {
     // 1- Tüm variable'lar private olarak oluşturulur.
     private String checkin;
     private String checkout;
+
+    // 2- Tüm variable'lar için getter and setter olusturuyoruz.
+    public String getCheckin() {
+        return checkin;
+    }
+
+    public void setCheckin(String checkin) {
+        this.checkin = checkin;
+    }
+
+    public String getCheckout() {
+        return checkout;
+    }
+
+    public void setCheckout(String checkout) {
+        this.checkout = checkout;
+    }
 }
