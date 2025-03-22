@@ -35,4 +35,8 @@ public class RestFullBookingdatesPOJO {
         this.checkin = checkin;
         this.checkout = checkout;
     }
+
+    // 4- Default constructor öldüğü için onun işlevini yapacak bir parametresiz constructor oluşturalım.
+    public RestFullBookingdatesPOJO() {
+    }
 }
