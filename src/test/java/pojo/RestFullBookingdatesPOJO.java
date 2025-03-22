@@ -29,4 +29,10 @@ public class RestFullBookingdatesPOJO {
     public void setCheckout(String checkout) {
         this.checkout = checkout;
     }
+
+    // 3- Tüm variable'ları içeren parametreli constructor oluşturuyoruz.
+    public RestFullBookingdatesPOJO(String checkin, String checkout) {
+        this.checkin = checkin;
+        this.checkout = checkout;
+    }
 }
