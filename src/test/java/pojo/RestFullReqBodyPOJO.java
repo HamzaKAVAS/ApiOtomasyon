@@ -74,4 +74,14 @@ public class RestFullReqBodyPOJO {
     public void setAdditionalneeds(String additionalneeds) {
         this.additionalneeds = additionalneeds;
     }
+
+    // 3- Tüm variable'ları içeren parametreli constructor oluşturuyoruz.
+    public RestFullReqBodyPOJO(String firstname, String lastname, int totalprice, boolean depositpaid, RestFullBookingdatesPOJO bookingdates, String additionalneeds) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.totalprice = totalprice;
+        this.depositpaid = depositpaid;
+        this.bookingdates = bookingdates;
+        this.additionalneeds = additionalneeds;
+    }
 }
