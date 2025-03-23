@@ -17,4 +17,12 @@ public class RestFullReqBodyPOJO {
               "additionalneeds" : "wi-fi"
            }
     */
+
+    // 1- Tüm variable'lar private olarak oluşturulur.
+    private String firstname;
+    private String lastname;
+    private int totalprice;
+    private boolean depositpaid;
+    private RestFullBookingdatesPOJO bookingdates;
+    private String additionalneeds;
 }
