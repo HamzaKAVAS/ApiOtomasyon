@@ -88,4 +88,16 @@ public class RestFullReqBodyPOJO {
     // 4- Default constructor öldüğü için onun işlevini yapacak bir parametresiz constructor oluşturalım.
     public RestFullReqBodyPOJO() {
     }
+
+    // 5- Verileri yazdırma durumunda ihtiyaç olursa diye toString methodu da eklenir.
+    @Override
+    public String toString() {
+        return "Rezervasyon Bilgileriniz: \n" +
+                "Firstname: " + firstname + "\n" +
+                "Lastname: " + lastname + "\n" +
+                "Totalprice: " + totalprice + "\n" +
+                "Depositpaid: " + depositpaid + "\n" +
+                "Bookingdates: " + bookingdates + "\n" +
+                "Additionalneeds: " + additionalneeds;
+    }
 }
