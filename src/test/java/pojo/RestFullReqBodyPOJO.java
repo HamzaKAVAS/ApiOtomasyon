@@ -84,4 +84,8 @@ public class RestFullReqBodyPOJO {
         this.bookingdates = bookingdates;
         this.additionalneeds = additionalneeds;
     }
+
+    // 4- Default constructor öldüğü için onun işlevini yapacak bir parametresiz constructor oluşturalım.
+    public RestFullReqBodyPOJO() {
+    }
 }
