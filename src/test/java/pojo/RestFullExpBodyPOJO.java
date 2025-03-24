@@ -53,4 +53,12 @@ public class RestFullExpBodyPOJO {
     public RestFullExpBodyPOJO() {
     }
 
+    // 5- Verileri yazdırma durumunda ihtiyaç olursa diye toString methodu da eklenir.
+    @Override
+    public String toString() {
+        return "RestFullExpBodyPOJO{" +
+                "bookingid=" + bookingid +
+                ", booking=" + booking +
+                '}';
+    }
 }
