@@ -49,4 +49,8 @@ public class RestFullExpBodyPOJO {
         this.booking = booking;
     }
 
+    // 4- Default constructor öldüğü için onun işlevini yapacak bir parametresiz constructor oluşturalım.
+    public RestFullExpBodyPOJO() {
+    }
+
 }
