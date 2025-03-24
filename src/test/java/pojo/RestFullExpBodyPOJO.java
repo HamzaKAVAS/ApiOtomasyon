@@ -22,4 +22,8 @@ public class RestFullExpBodyPOJO {
            }
     */
 
+    // 1- Tüm variable'lar private olarak oluşturulur.
+    private int bookingid;
+    private RestFullReqBodyPOJO booking;
+
 }
