@@ -43,4 +43,10 @@ public class RestFullExpBodyPOJO {
         this.booking = booking;
     }
 
+    // 3- Tüm variable'ları içeren parametreli constructor oluşturuyoruz.
+    public RestFullExpBodyPOJO(int bookingid, RestFullReqBodyPOJO booking) {
+        this.bookingid = bookingid;
+        this.booking = booking;
+    }
+
 }
