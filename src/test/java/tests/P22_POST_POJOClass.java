@@ -9,6 +9,7 @@ import pojo.RestFullExpBodyPOJO;
 import pojo.RestFullReqBodyPOJO;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
 
@@ -63,5 +64,13 @@ public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
 
         // 4- Assertion İşlemleri
         RestFullExpBodyPOJO resPojo = response.as(RestFullExpBodyPOJO.class);
+
+        assertEquals(resPojo.getBooking().getFirstname(), expBody.getBooking().getFirstname());
+        assertEquals(resPojo.getBooking().getLastname(), expBody.getBooking().getLastname());
+        assertEquals(resPojo.getBooking().getTotalprice(), expBody.getBooking().getTotalprice());
+        assertEquals(resPojo.getBooking().isDepositpaid(), expBody.getBooking().isDepositpaid());
+        assertEquals(resPojo.getBooking().getAdditionalneeds(), expBody.getBooking().getAdditionalneeds());
+        assertEquals(resPojo.getBooking().getBookingdates().getCheckin(), expBody.getBooking().getBookingdates().getCheckin());
+        assertEquals(resPojo.getBooking().getBookingdates().getCheckout(), expBody.getBooking().getBookingdates().getCheckout());
     }
 }
