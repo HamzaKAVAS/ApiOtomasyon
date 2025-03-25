@@ -60,5 +60,8 @@ public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
 
         // 3- Response Kaydedilir
         Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqBody).post("/{pp1}");
+
+        // 4- Assertion İşlemleri
+        RestFullExpBodyPOJO resPojo = response.as(RestFullExpBodyPOJO.class);
     }
 }
