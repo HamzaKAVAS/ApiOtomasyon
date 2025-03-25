@@ -3,6 +3,7 @@ package tests;
 import baseUrl.RESTFULL_BaseUrl;
 import org.testng.annotations.Test;
 import pojo.RestFullBookingdatesPOJO;
+import pojo.RestFullExpBodyPOJO;
 import pojo.RestFullReqBodyPOJO;
 
 public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
@@ -50,5 +51,7 @@ public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
         RestFullBookingdatesPOJO bookingdates = new RestFullBookingdatesPOJO("2021-06-01", "2021-06-10");
         RestFullReqBodyPOJO reqBody = new RestFullReqBodyPOJO("Hayri", "Yiğit", 275, true, bookingdates, "wi-fi");
 
+        // 2- Expected Body
+        RestFullExpBodyPOJO expBody = new RestFullExpBodyPOJO(24, reqBody);
     }
 }
