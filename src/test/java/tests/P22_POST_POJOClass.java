@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import pojo.RestFullBookingdatesPOJO;
 import pojo.RestFullExpBodyPOJO;
 import pojo.RestFullReqBodyPOJO;
-
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
@@ -50,7 +49,7 @@ public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
     */
 
     @Test
-    public void test01(){
+    public void test01() {
         // 1- Endpoint ve reqBody Hazırlanması
         specRestFull.pathParam("pp1", "booking");
         RestFullBookingdatesPOJO bookingdates = new RestFullBookingdatesPOJO("2021-06-01", "2021-06-10");
