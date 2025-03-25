@@ -1,10 +1,14 @@
 package tests;
 
 import baseUrl.RESTFULL_BaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojo.RestFullBookingdatesPOJO;
 import pojo.RestFullExpBodyPOJO;
 import pojo.RestFullReqBodyPOJO;
+
+import static io.restassured.RestAssured.given;
 
 public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
 
@@ -53,5 +57,8 @@ public class P22_POST_POJOClass extends RESTFULL_BaseUrl {
 
         // 2- Expected Body
         RestFullExpBodyPOJO expBody = new RestFullExpBodyPOJO(24, reqBody);
+
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(reqBody).post("/{pp1}");
     }
 }
