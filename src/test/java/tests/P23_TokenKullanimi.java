@@ -1,5 +1,7 @@
 package tests;
 
+import org.testng.annotations.Test;
+
 public class P23_TokenKullanimi {
 
     /*
@@ -19,4 +21,10 @@ public class P23_TokenKullanimi {
        Post Request yapınız
     */
 
+    static String token;
+
+    @Test
+    public void createToken(){
+
+    }
 }
