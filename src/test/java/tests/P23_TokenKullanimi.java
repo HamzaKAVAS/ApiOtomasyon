@@ -2,6 +2,7 @@ package tests;
 
 import baseUrl.RESTFULL_BaseUrl;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
@@ -41,5 +42,9 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
 
         // 3- Response Kaydedilir
         Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(data.toString()).post("/{pp1}");
+
+        JsonPath resJP = response.jsonPath();
+        token = resJP.getString("token");
+        System.out.println("Token: " + token);
     }
 }
