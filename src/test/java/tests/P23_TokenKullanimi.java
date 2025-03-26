@@ -1,8 +1,12 @@
 package tests;
 
 import baseUrl.RESTFULL_BaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
 
@@ -32,5 +36,10 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
         JSONObject data = new JSONObject();
         data.put("username", "admin");
         data.put("password", "password123");
+
+        // 2- Expected Body Yok
+
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specRestFull).when().body(data.toString()).post("/{pp1}");
     }
 }
