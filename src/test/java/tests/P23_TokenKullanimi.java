@@ -1,8 +1,10 @@
 package tests;
 
+import baseUrl.RESTFULL_BaseUrl;
+import org.json.JSONObject;
 import org.testng.annotations.Test;
 
-public class P23_TokenKullanimi {
+public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
 
     /*
        https://restful-booker.herokuapp.com/booking/3170 (id güncellenmeli)
@@ -25,6 +27,10 @@ public class P23_TokenKullanimi {
 
     @Test
     public void createToken(){
-
+        // 1- EndPoint Hazırlanır
+        specRestFull.pathParam("pp1","auth");
+        JSONObject data = new JSONObject();
+        data.put("username", "admin");
+        data.put("password", "password123");
     }
 }
