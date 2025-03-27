@@ -54,5 +54,9 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
         // 1- Endpoint ve reqBody Hazırlanması
         specRestFull.pathParams("pp1", "booking", "pp2", 1863);
         JSONObject reqBody = RestFullDatas.JSONDataOlustur();
+
+        // 2- Expected Body Yok
+
+        // 3- Response Kaydedilir
     }
 }
