@@ -58,5 +58,8 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
         // 2- Expected Body Yok
 
         // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specRestFull)
+                .when().body(reqBody.toString()).header("Content-Type", "application/json")
+                .header("Accept", "application/json").header("Cookie", "token=" + token).put("/{pp1}/{pp2}");
     }
 }
