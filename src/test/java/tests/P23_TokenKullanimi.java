@@ -6,6 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
+import testDatas.RestFullDatas;
 
 import static io.restassured.RestAssured.given;
 
@@ -52,5 +53,6 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
     public void test01(){
         // 1- Endpoint ve reqBody Hazırlanması
         specRestFull.pathParams("pp1", "booking", "pp2", 1863);
+        JSONObject reqBody = RestFullDatas.JSONDataOlustur();
     }
 }
