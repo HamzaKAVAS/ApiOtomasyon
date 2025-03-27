@@ -47,4 +47,10 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
         token = resJP.getString("token");
         System.out.println("Token: " + token);
     }
+
+    @Test
+    public void test01(){
+        // 1- Endpoint ve reqBody Hazırlanması
+        specRestFull.pathParams("pp1", "booking", "pp2", 1863);
+    }
 }
