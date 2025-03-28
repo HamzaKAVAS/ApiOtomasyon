@@ -63,4 +63,11 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
                 .header("Accept", "application/json").header("Cookie", "token=" + token).put("/{pp1}/{pp2}");
         response.prettyPrint();
     }
+
+    @Test
+    public void test02(){
+        // 1- Endpoint ve reqBody Hazırlanması
+        specRestFull.pathParams("pp1", "booking", "pp2", 1572);
+        JSONObject reqBody = RestFullDatas.JSONDataOlustur();
+    }
 }
