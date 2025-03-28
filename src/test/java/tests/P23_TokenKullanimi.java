@@ -61,7 +61,7 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
         Response response = given().contentType(ContentType.JSON).spec(specRestFull)
                 .when().body(reqBody.toString()).header("Content-Type", "application/json")
                 .header("Accept", "application/json").header("Cookie", "token=" + token).put("/{pp1}/{pp2}");
-        response.prettyPrint();
+        //response.prettyPrint();
     }
 
     @Test
@@ -69,5 +69,13 @@ public class P23_TokenKullanimi extends RESTFULL_BaseUrl {
         // 1- Endpoint ve reqBody Hazırlanması
         specRestFull.pathParams("pp1", "booking", "pp2", 1572);
         JSONObject reqBody = RestFullDatas.JSONDataOlustur();
+
+        // 2- Expected Body Yok
+
+        // 3- Response Kaydedilir
+        Response response = given().contentType(ContentType.JSON).spec(specRestFull)
+                .when().body(reqBody.toString()).header("Content-Type", "application/json")
+                .header("Accept", "application/json").header("Authorization", "Basic YWRtaW46cGFzc3dvcmQxMjM=").put("/{pp1}/{pp2}");
+        response.prettyPrint();
     }
 }
