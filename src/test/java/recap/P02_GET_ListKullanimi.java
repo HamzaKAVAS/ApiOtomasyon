@@ -1,6 +1,9 @@
 package recap;
 
 import baseUrl.ReqResBaseUrl;
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.given;
 
 public class P02_GET_ListKullanimi extends ReqResBaseUrl {
 
@@ -16,5 +19,8 @@ public class P02_GET_ListKullanimi extends ReqResBaseUrl {
         specReqRes.pathParams("pp1","api","pp2","users").queryParams("page",2);
 
         // 2- Expected Body Yok.
+
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specReqRes).when().get("/{pp1}/{pp2}");
     }
 }
