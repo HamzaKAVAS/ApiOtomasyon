@@ -10,4 +10,11 @@ public class P02_GET_ListKullanimi extends ReqResBaseUrl {
        Liste içerisindeki kullanıcı sayısının en az 1 olduğunu doğrulayın.
        İlk kullanıcının email adresinin boş olmadığını kontrol edin.
     */
+
+    public void test(){
+        // 1- Endpoint Hazırlanır.
+        specReqRes.pathParams("pp1","api","pp2","users").queryParams("page",2);
+
+        // 2- Expected Body Yok.
+    }
 }
