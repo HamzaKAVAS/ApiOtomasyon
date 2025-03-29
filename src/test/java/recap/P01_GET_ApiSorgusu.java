@@ -1,5 +1,7 @@
 package recap;
 
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 public class P01_GET_ApiSorgusu {
@@ -13,8 +15,15 @@ public class P01_GET_ApiSorgusu {
 
     @Test
     public void test(){
-        // 1- Endpoint Hazırlanır
+        // 1- Endpoint Hazırlanır.
         String url = "https://reqres.in/api/users/2";
+
+        // 2- Expected Body Yok.
+
+        // 3- Response Kaydedilir.
+        Response response = RestAssured.get(url);
+        response.then().assertThat().statusCode(200);
+
 
     }
 }
