@@ -3,6 +3,7 @@ package recap;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import static org.junit.Assert.*;
 
 public class P01_GET_ApiSorgusu {
 
@@ -14,7 +15,7 @@ public class P01_GET_ApiSorgusu {
     */
 
     @Test
-    public void test(){
+    public void test() {
         // 1- Endpoint Hazırlanır.
         String url = "https://reqres.in/api/users/2";
 
@@ -24,6 +25,8 @@ public class P01_GET_ApiSorgusu {
         Response response = RestAssured.get(url);
         response.then().assertThat().statusCode(200);
 
-
+        // 4- Assertion İslemleri Yapılır.
+        assertEquals(2, response.jsonPath().getInt("data.id"));
+        assertTrue(response.getTime() < 2000);
     }
 }
