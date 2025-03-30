@@ -1,6 +1,7 @@
 package recap;
 
 import baseUrl.ReqResBaseUrl;
+import org.junit.jupiter.api.Test;
 
 public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
 
@@ -14,4 +15,10 @@ public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
        Yanıtın JSON body'sinde name alanının morpheus olduğunu kontrol edin.
     */
 
+    @Test
+    public void postApiSorgusuTest(){
+        // 1- EndPoint ve ReqBody Hazırlanır.
+        specReqRes.pathParams("pp1","api","pp2","users");
+
+    }
 }
