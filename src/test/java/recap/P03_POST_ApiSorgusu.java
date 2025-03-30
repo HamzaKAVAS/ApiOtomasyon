@@ -2,11 +2,12 @@ package recap;
 
 import baseUrl.ReqResBaseUrl;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
-
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
 
@@ -36,6 +37,9 @@ public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
                 .when().body(reqBody.toString()).post("/{pp1}/{pp2}");
         //response.prettyPrint();
 
-
+        // 4- Assertions İşlemleri Yapılır.
+        JsonPath resJP = response.jsonPath();
+        assertEquals(201,response.getStatusCode());
+        assertEquals("morpheus",resJP.get("name"));
     }
 }
