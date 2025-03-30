@@ -1,6 +1,7 @@
 package recap;
 
 import baseUrl.ReqResBaseUrl;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
@@ -19,6 +20,13 @@ public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
     public void postApiSorgusuTest(){
         // 1- EndPoint ve ReqBody Hazırlanır.
         specReqRes.pathParams("pp1","api","pp2","users");
+
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("name","morpheus");
+        reqBody.put("job","leader");
+
+        // 2- Expected Body Yok.
+
 
     }
 }
