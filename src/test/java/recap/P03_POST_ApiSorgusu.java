@@ -1,8 +1,12 @@
 package recap;
 
 import baseUrl.ReqResBaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
 
@@ -26,6 +30,11 @@ public class P03_POST_ApiSorgusu extends ReqResBaseUrl {
         reqBody.put("job","leader");
 
         // 2- Expected Body Yok.
+
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specReqRes).contentType(ContentType.JSON).header("Content-Type","application/json")
+                .when().body(reqBody.toString()).post("/{pp1}/{pp2}");
+        //response.prettyPrint();
 
 
     }
