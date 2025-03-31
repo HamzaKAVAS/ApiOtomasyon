@@ -29,4 +29,10 @@ public class ReqResPOJO {
     public void setJob(String job) {
         this.job = job;
     }
+
+    // 3- Tüm variable'ları içeren parametreli constructor oluşturuyoruz.
+    public ReqResPOJO(String name, String job) {
+        this.name = name;
+        this.job = job;
+    }
 }
