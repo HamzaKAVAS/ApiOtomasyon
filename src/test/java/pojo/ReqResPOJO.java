@@ -35,4 +35,16 @@ public class ReqResPOJO {
         this.name = name;
         this.job = job;
     }
+
+    // 4- Default constructor öldüğü için onun işlevini yapacak bir parametresiz constructor oluşturalım.
+    public ReqResPOJO() {
+    }
+
+    // 5- Verileri yazdırma durumunda ihtiyaç olursa diye toString methodu da eklenir.
+    @Override
+    public String toString() {
+        return "=====ReqResPOJO=====" +
+                "name: " + name + "\n" +
+                "job: " + job + "\n";
+    }
 }
