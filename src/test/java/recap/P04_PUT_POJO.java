@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import pojo.ReqResPOJO;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class P04_PUT_POJO extends ReqResBaseUrl {
 
@@ -20,16 +21,20 @@ public class P04_PUT_POJO extends ReqResBaseUrl {
     */
 
     @Test
-    public void putPojoTest(){
+    public void putPojoTest() {
         // 1- EndPoint ve ReqBody Hazırlanır.
-        specReqRes.pathParams("pp1","api","pp2","users","pp3",2);
-        ReqResPOJO reqBody = new ReqResPOJO("John Doe","QA Tester");
+        specReqRes.pathParams("pp1", "api", "pp2", "users", "pp3", 2);
+        ReqResPOJO reqBody = new ReqResPOJO("John Doe", "QA Tester");
 
         // 2- ExpBody Yok.
 
         // 3- Response Kaydedilir.
         Response response = RestAssured.given().spec(specReqRes).contentType(ContentType.JSON)
-                .header("Content-Type","application/json").when().body(reqBody).put("/{pp1}/{pp2}/{pp3}");
+                .header("Content-Type", "application/json").when().body(reqBody).put("/{pp1}/{pp2}/{pp3}");
         //response.prettyPrint();
+
+        // 4- Assertions İşlemleri Yapılır.
+        assertEquals(200, response.getStatusCode());
+        assertEquals("John Doe", response.jsonPath().get("name"));
     }
 }
