@@ -1,6 +1,8 @@
 package recap;
 
 import baseUrl.ReqResBaseUrl;
+import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
 
 public class P05_PUT_ResponseBodyTest extends ReqResBaseUrl {
 
@@ -21,4 +23,13 @@ public class P05_PUT_ResponseBodyTest extends ReqResBaseUrl {
            "updatedAt": "2025-03-05T12:34:56.789Z"
          }
     */
+
+    @Test
+    public void test(){
+        // 1- EndPoint ve ReqBody Hazırlanır.
+        specReqRes.pathParams("pp1","api","pp2","users","pp3",2);
+        JSONObject reqBody = new JSONObject();
+        reqBody.put("name","Hayri");
+        reqBody.put("job","QA Tester");
+    }
 }
