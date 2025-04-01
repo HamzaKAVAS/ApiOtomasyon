@@ -31,5 +31,11 @@ public class P05_PUT_ResponseBodyTest extends ReqResBaseUrl {
         JSONObject reqBody = new JSONObject();
         reqBody.put("name","Hayri");
         reqBody.put("job","QA Tester");
+
+        // 2- Expected Body Hazırlanır.
+        JSONObject expBody = new JSONObject();
+        expBody.put("name","Hayri");
+        expBody.put("job","QA Tester");
+        expBody.put("updatedAt","2025-03-05T12:34:56.789Z");
     }
 }
