@@ -1,8 +1,12 @@
 package recap;
 
 import baseUrl.ReqResBaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P05_PUT_ResponseBodyTest extends ReqResBaseUrl {
 
@@ -37,5 +41,10 @@ public class P05_PUT_ResponseBodyTest extends ReqResBaseUrl {
         expBody.put("name","Hayri");
         expBody.put("job","QA Tester");
         expBody.put("updatedAt","2025-03-05T12:34:56.789Z");
+
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specReqRes).contentType(ContentType.JSON).when().body(reqBody.toString())
+                .put("/{pp1}/{pp2}/{pp3}");
+        //response.prettyPrint();
     }
 }
