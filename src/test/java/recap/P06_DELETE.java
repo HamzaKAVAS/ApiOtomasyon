@@ -1,7 +1,10 @@
 package recap;
 
 import baseUrl.ReqResBaseUrl;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P06_DELETE extends ReqResBaseUrl {
 
@@ -17,6 +20,7 @@ public class P06_DELETE extends ReqResBaseUrl {
 
         // 2- Expected Body Yok.
 
-
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specReqRes).when().delete("/{pp1}/{pp2}/{pp3}");
     }
 }
