@@ -14,5 +14,9 @@ public class P06_DELETE extends ReqResBaseUrl {
     public void deleteTest(){
         // 1- EndPoint Hazırlanır.
         specReqRes.pathParams("pp1","api","pp2","users","pp3",57);
+
+        // 2- Expected Body Yok.
+
+
     }
 }
