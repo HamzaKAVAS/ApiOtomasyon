@@ -1,8 +1,9 @@
 package recap;
 
+import baseUrl.OpenWeatherBaseUrl;
 import org.junit.jupiter.api.Test;
 
-public class P07_GET_OpenWeather {
+public class P07_GET_OpenWeather extends OpenWeatherBaseUrl {
 
     /*
        Endpoint: https://api.openweathermap.org/data/2.5/weather?q=Istanbul&appid=YOUR_API_KEY
@@ -19,6 +20,10 @@ public class P07_GET_OpenWeather {
 
     @Test
     public void openWeatherTest(){
+        // 1- EndPoint Hazırlanır.
+        specOpenWeather.pathParams("pp1","data","pp2",2.5,"pp3","weather")
+                .queryParams("q","Istanbul","appid",myApiKey);
 
+        // 2- Expected Body Yok.
     }
 }
