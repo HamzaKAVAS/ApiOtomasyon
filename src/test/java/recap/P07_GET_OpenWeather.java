@@ -1,7 +1,10 @@
 package recap;
 
 import baseUrl.OpenWeatherBaseUrl;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class P07_GET_OpenWeather extends OpenWeatherBaseUrl {
 
@@ -25,5 +28,10 @@ public class P07_GET_OpenWeather extends OpenWeatherBaseUrl {
                 .queryParams("q","Istanbul","appid",myApiKey);
 
         // 2- Expected Body Yok.
+
+        // 3- Response Kaydedilir.
+        Response response = given().spec(specOpenWeather).when().get("/{pp1}/{pp2}/{pp3}");
+
+
     }
 }
