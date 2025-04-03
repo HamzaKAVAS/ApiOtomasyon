@@ -2,8 +2,9 @@ package recap;
 
 import baseUrl.OpenWeatherBaseUrl;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static io.restassured.RestAssured.given;
 
 public class P07_GET_OpenWeather extends OpenWeatherBaseUrl {
@@ -22,16 +23,21 @@ public class P07_GET_OpenWeather extends OpenWeatherBaseUrl {
     static String myApiKey = "89057ad0892940ef7b7f932cab562fbd";
 
     @Test
-    public void openWeatherTest(){
+    public void openWeatherTest() {
         // 1- EndPoint Hazırlanır.
-        specOpenWeather.pathParams("pp1","data","pp2",2.5,"pp3","weather")
-                .queryParams("q","Istanbul","appid",myApiKey);
+        specOpenWeather.pathParams("pp1", "data", "pp2", 2.5, "pp3", "weather")
+                .queryParams("q", "Istanbul", "appid", myApiKey);
 
         // 2- Expected Body Yok.
 
         // 3- Response Kaydedilir.
         Response response = given().spec(specOpenWeather).when().get("/{pp1}/{pp2}/{pp3}");
 
+        // 4- Assertions işlemleri yapılır.
+        response.then().assertThat().statusCode(200).contentType("application/json; charset=utf-8")
+                .body("name", Matchers.equalTo("Istanbul"));
 
+        Assertions.assertFalse(response.jsonPath().getDouble("main.temp") > -50
+                && response.jsonPath().getDouble("main.temp") < 50);
     }
 }
